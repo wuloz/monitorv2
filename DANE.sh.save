@@ -1,0 +1,33 @@
+#!/bin/bash
+
+statlan()
+
+{
+
+vnstat  > /tmp/lan.tmp
+odebrane=$(cat /tmp/lan.tmp|grep "'18"|awk '{print $3}')
+odebrane2=$(cat /tmp/lan.tmp|grep "'18"|awk '{print $4}')
+wyslane=$(cat /tmp/lan.tmp|grep "'18"|awk '{print $6}')
+wyslane2=$(cat /tmp/lan.tmp|grep "'18"|awk '{print $7}')
+
+odebrane=$(echo $odebrane $odebrane2)
+wyslane=$(echo $wyslane $wyslane2)
+
+}
+
+
+printf "%-28s %s\n" "┌----------------------------------┐"
+printf "%-28s %s\n" "|-------DANE WYSLANE/ODEBRANE------|"
+printf "%-28s %s\n" "|------------ls_monitor------------|"
+printf "%-28s %s\n" "└----------------------------------┘"
+printf "%-28s %s\n" ""
+printf "%-28s %s\n" "┌----------------------------------┐"
+
+x=1
+while [ $x -le 1 ] ; do
+info
+printf "%-1s %-7s %-6s %-4s %s\n" "|" "" " >" "$os" "|"
+x=$[x + 1]
+done
+
+

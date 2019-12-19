@@ -1,0 +1,45 @@
+#!/bin/bash
+
+menu()
+{
+parametry=$(bash PARAMETRY.sh)
+ram=$(bash RAM.sh)
+uslugi=$(bash USLUGI.sh)
+hdd=$(bash HDD.sh)
+}
+
+printf "%-28s %s\n" "┌--------------------------┐"
+printf "%-28s %s\n" "|-------MENU_GLOWNE--------|"
+printf "%-28s %s\n" "|--------ls_monitor--------|"
+printf "%-28s %s\n" "└--------------------------┘"
+printf "%-28s %s\n" ""
+printf "%-28s %s\n" "┌--------------------------┐"
+printf "%-28s %s\n" "|----------1.RAM-----------|"
+printf "%-28s %s\n" "|--2.PARAMETRY KOMPUTERY---|"
+printf "%-28s %s\n" "|---------3.USLUGI---------|"
+printf "%-28s %s\n" "|--------4.DYSKI HDD-------|"
+printf "%-28s %s\n" "└--------------------------┘"
+
+	read answer
+
+	case "$answer" in
+		1)
+			bash RAM.sh
+		;;
+		2)
+			bash PARAMETRY.sh
+		;;	
+		3)
+			bash USLUGI.sh"
+		;;
+		4)
+			bash HDD.sh"
+		;;
+		*)
+		clear
+	
+	echo "eRRor: Nie uwzglednilem takiej opcji"
+		sleep 2
+		;;
+	esac
+sleep infinity

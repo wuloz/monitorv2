@@ -1,0 +1,28 @@
+#!/bin/bash
+
+info()
+
+{
+nazwa=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $1 }')
+zajeta=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $2 }')
+hddza=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $3 }')
+hdddostepne=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $4 }')
+hddprocent=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $5 }')
+}
+
+
+
+printf "%-28s %s\n" "┌----------------------┐"
+printf "%-28s %s\n" "|-------PARAMETRY------|"
+printf "%-28s %s\n" "|------ls_monitor------|"
+printf "%-28s %s\n" "└----------------------┘"
+printf "%-28s %s\n" ""
+printf "%-28s %s\n" "┌----------------------┐"
+
+#printf "%-28s %s\n" "└--------------------------------┘"
+#printf "%-28s %s\n" " "
+#printf "%-28s %s\n" "NAPISZ "exit" JESLI CHCESZ POWROCIC DO MENU GLOWNEGO"
+#printf "%-28s %s\n" "NAPISZ "again" ABY ODTWORZYC SKRYPT NA NOWO"
+
+
+

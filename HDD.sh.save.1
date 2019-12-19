@@ -1,0 +1,26 @@
+#!/bin/bash
+
+hdd()
+
+{
+nazwa1=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $1 }'|sed '1q;d')
+pojemnosc1=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $2 }'|sed '1q;d')
+zajete1=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $3 }'|sed '1q;d')
+dostepne1=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $4 }'|sed '1q;d')
+procent1=$(df -H | grep ^/dev/ |cut -f3 -d '/'| awk '{ print $5 }'|sed '1q;d')
+}
+
+printf "%-28s %s\n" "┌----------------------┐"
+printf "%-28s %s\n" "|----------HDD---------|"
+printf "%-28s %s\n" "|------ls_monitor------|"
+printf "%-28s %s\n" "└----------------------┘"
+printf "%-28s %s\n" ""
+printf "%-28s %s\n" "┌-----------------------------------------------------------------------------┐"
+
+g=1;
+while [ $g -le 1 ] ; do
+hdd
+printf "%-1s %-4s %-9s %-1s %-6s %-1s %-8s %-1s %-7s %-1s  %s\n" "|" "Dysk" "|" "Pojemnosc" "|" "Zajete" "|" "Dostepne" "|" "Procent" "|"
+printf "%-1s %-2s %-9s %-10s %-6s %-1s %-8s %-1s %-8s %-1s  %s\n" "|" "$nazwa1" "|" "$pojemnosc1" "|" "$zajete1" "|" "$dostepne1" "|" "$procent1" "|"
+g=$[g + 1]
+done
